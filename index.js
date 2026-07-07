@@ -45,3 +45,36 @@ const bookStore = {
 
 // Write your code here!
 
+// Select the header and change its text
+const bookStoreTitle = document.getElementById("header");
+bookStoreTitle.textContent = bookStore.name;
+
+// Select the book list
+const bookList = document.getElementById("book-list");
+
+// Loop through each book
+for (const book of bookStore.books) {
+  // Create elements
+  const bookContainer = document.createElement("li");
+  const bookTitle = document.createElement("h3");
+  const bookAuthor = document.createElement("p");
+  const bookImage = document.createElement("img");
+
+  // Set element content
+  bookTitle.textContent = book.title;
+  bookAuthor.textContent = book.author;
+  bookImage.src = book.imageUrl;
+
+  // Append elements
+  bookContainer.append(bookTitle);
+  bookContainer.append(bookAuthor);
+  bookContainer.append(bookImage);
+
+  bookList.append(bookContainer);
+}
+
+const deleteElement = document.getElementById("delete-this");
+
+if (deleteElement) {
+  deleteElement.remove();
+}
